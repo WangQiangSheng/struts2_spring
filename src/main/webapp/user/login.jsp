@@ -7,20 +7,20 @@
 		$('#index_registerForm').form({
 			url : projectName + '/userAction!login.action',
 			data : {
-				name : $('#index_registerForm input[name=name]').val(),
-				pwd : $('#index_registerForm input[name=pwd1]').val()
+				name : $('#user_login_loginForm input[name=name]').val(),
+				pwd : $('#user_login_loginForm input[name=pwd1]').val()
 			},
 			success : function(data) {
 				var obj = jQuery.parseJSON(data);
 				if (obj.success == true) {
 					$.messager.show({
 						title : '提示：',
-						msg : '注册成功！',
+						msg : '登录成功！',
 					});
 				} else {
 					$.messager.show({
 						title : '提示：',
-						msg : '注册失败！！！',
+						msg : '登录失败！！！',
 					});
 				}
 				console.info(data);
@@ -31,7 +31,7 @@
 
 
 
-<div id="index_login" class="easyui-dialog" data-options="modal:true,closable:false,title:'登录',buttons:[{
+<div id="user_login_loginDiv" class="easyui-dialog" data-options="modal:true,closable:false,title:'登录',buttons:[{
 				text:'注册',
 				handler:function(){
 					$('#index_registerDialog').dialog('open');
