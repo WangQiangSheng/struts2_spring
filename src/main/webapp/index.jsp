@@ -18,41 +18,6 @@
 <!-- 引入Easy UI 的图标文件 -->
 <link rel="stylesheet" href="jslib/jquery-easyui-1.5.2/themes/icon.css" type="text/css"></link>
 
-<script type="text/javascript">
-	$(function(){
-		var pathName=window.document.location.pathname;
-		var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-
-		
-
-		//var item2 = ${pageContext.request.contextPath};
-		//var item2 = ${pageContext.request.contextPath};
-		//$('#index_registerForm').submit();
-		$('#index_registerForm').form({
-		    url:projectName+'/userAction!register.action',
-		    data:{
-		    	name:$('#index_registerForm input[name=name]').val(),
-		    	pwd:$('#index_registerForm input[name=pwd1]').val()
-		    },
-		    success:function(data){
-		    	var obj = jQuery.parseJSON(data);
-		    	if(obj.success == true){
-		    		$.messager.show({
-		    			title:'提示：',
-		    			msg:'注册成功！',
-		    		});
-		    	}else{
-		    		$.messager.show({
-		    			title:'提示：',
-		    			msg:'注册失败！！！',
-		    		});
-		    	}
-		    	console.info(data);
-		    }
-		});
-	});
-
-</script>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'north'" style="height:150px"></div>
@@ -63,33 +28,8 @@
 	</div>
 	<div data-options="region:'center',title:'Center'"></div>
 
+	<jsp:include page="user/login.jsp"></jsp:include>
+	<jsp:include page="user/register.jsp"></jsp:include>
 	
-
-	<div id="index_registerDialog" class="easyui-dialog" style="widtd:250px;" data-options="modal:true,closed:true,closable:false,title:'注册',buttons:[{
-				text:'注册',
-				//可以设置LOGO
-				iconCls:'icon-edit',
-				handler:function(){
-					$('#index_registerForm').submit();
-				}
-			}]">
-		<form id="index_registerForm" method="post">
-			<table>
-				<tr>
-					<th>请输入账号：</th>
-					<td><input name="name" type="text" class="easyui-validatebox" data-options="required:true,missingMessage:'账号为必填项'" /></td>
-				</tr>
-				<tr>
-					<th>请输入密码：</th>
-					<td><input name="pwd1" type="password" class="easyui-validatebox" data-options="required:true,missingMessage:'密码为必填项'" /></td>
-				</tr>
-				<tr>
-					<th>请再输密码：</th>
-					<td><input name="pwd2" type="password" class="easyui-validatebox" data-options="required:true,validType:'equalsPwd[\'#index_registerForm input[name=pwd1]\']',missingMessage:'密码为必填项'" /></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-
 </body>
 </html>

@@ -114,24 +114,26 @@
 			<artifactId>druid</artifactId>
 			<version>0.2.8</version>
 		</dependency>
-		
+
 		<!-- fastJson -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.1.24</version>
 		</dependency>
-		
+
 		<!-- mysql数据库驱动 -->
-		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> <version>5.1.21</version> </dependency> -->
-		<!-- sql server数据库驱动 -->
-		<!-- <dependency> <groupId>net.sourceforge.jtds</groupId> <artifactId>jtds</artifactId> <version>1.2.4</version> </dependency> -->
-		<!-- oracle数据库驱动 -->
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
 		</dependency>
+		<!-- sql server数据库驱动 -->
+		<!-- <dependency> <groupId>net.sourceforge.jtds</groupId> <artifactId>jtds</artifactId> 
+			<version>1.2.4</version> </dependency> -->
+		<!-- oracle数据库驱动 <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
+			<version>10.2.0.4.0</version> </dependency> -->
+
 
 
 	</dependencies>

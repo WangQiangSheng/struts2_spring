@@ -8,5 +8,7 @@ import qsheng.wang.pageModel.User;
 public interface UserServiceI {
 
 	public Serializable saveAUser(User user);
+	
+	public boolean findAUser(User user);
 
 }

@@ -4,7 +4,7 @@
 	$(function() {
 		var pathName = window.document.location.pathname;
 		var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
-		$('#index_registerForm').form({
+		$('#user_login_loginForm').form({
 			url : projectName + '/userAction!login.action',
 			data : {
 				name : $('#user_login_loginForm input[name=name]').val(),
@@ -34,12 +34,14 @@
 <div id="user_login_loginDiv" class="easyui-dialog" data-options="modal:true,closable:false,title:'登录',buttons:[{
 				text:'注册',
 				handler:function(){
-					$('#index_registerDialog').dialog('open');
-					$('#index_login').dialog('close');
+					$('#user_register_registerDialog').dialog('open');
+					$('#user_login_loginDiv').dialog('close');
 				}
 			},{
 				text:'登录',
-				handler:function(){}
+				handler:function(){
+					$('#user_login_loginForm').submit();
+				}
 			}]">
 	<form id="user_login_loginForm" method="post">
 		<table>
@@ -52,5 +54,5 @@
 				<td><input name="pwd1" /></td>
 			</tr>
 		</table>
-	<form>
+	</form>
 </div>

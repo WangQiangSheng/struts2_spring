@@ -25,6 +25,11 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 		this.userService = userService;
 	}
 
+	@Override
+	public User getModel() {
+		return user;
+	}
+	
 	public void register() {
 		Json json = new Json();
 		try {
@@ -37,9 +42,16 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 		super.writeJson(json);
 	}
 
-	@Override
-	public User getModel() {
-		return user;
+	public void login(){
+		Json json = new Json();
+		boolean result = this.userService.findAUser(user);
+		if(result){
+			json.setSuccess(result);
+			json.setMsg("登陆成功！！！");
+		}else{
+			json.setMsg("登录失败！！！");
+		}
+		super.writeJson(json);
 	}
 
 }
